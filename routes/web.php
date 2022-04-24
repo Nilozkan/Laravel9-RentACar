@@ -32,9 +32,15 @@ Route::get('/test', [\App\Http\Controllers\HomeController::class,'test'])->name(
 //5-Route with parameters
 Route::get('/param/{id}/{number}', [\App\Http\Controllers\HomeController::class,'param'])->name('param');
 
-
+//6- Route with post
+Route::post('/save',[\App\Http\Controllers\AdminPanel\HomeController::class,'save'])->name('save');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+//**************************** ADMIN PANEL ROUTES **************************
+
+Route::get('/admin',[\App\Http\Controllers\AdminPanel\HomeController::class,'index'])->name('admin');
+
